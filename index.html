@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生成AIの倫理感</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        header {
+            background-color: #00704A;
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        h1 {
+            font-size: 48px;
+            margin: 0;
+        }
+        .subtitle {
+            font-size: 24px;
+            color: #333;
+            text-align: center;
+            margin: 20px 0 40px;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+        .card {
+            border-radius: 10px;
+            padding: 20px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            min-height: 180px;
+            display: flex;
+            flex-direction: column;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .card-icon {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 40px;
+        }
+        .card-content {
+            margin-left: 100px;
+        }
+        .card h2 {
+            margin-top: 0;
+            font-size: 28px;
+        }
+        .card p {
+            flex-grow: 1;
+            font-size: 16px;
+            color: #666;
+        }
+        .footer {
+            background-color: #00704A;
+            color: white;
+            padding: 30px;
+            text-align: center;
+            margin-top: 40px;
+            border-radius: 10px;
+        }
+        .footer h2 {
+            font-size: 28px;
+            margin-top: 0;
+        }
+        .footer ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+            max-width: 800px;
+            margin: 20px auto;
+        }
+        .footer li {
+            margin-bottom: 10px;
+            font-size: 18px;
+            position: relative;
+            padding-left: 25px;
+        }
+        .footer li:before {
+            content: "•";
+            position: absolute;
+            left: 0;
+            color: white;
+        }
+        .corner-circle {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: white;
+            position: fixed;
+        }
+        .top-left {
+            top: 15px;
+            left: 15px;
+        }
+        .top-right {
+            top: 15px;
+            right: 15px;
+        }
+        .bottom-left {
+            bottom: 15px;
+            left: 15px;
+        }
+        .bottom-right {
+            bottom: 15px;
+            right: 15px;
+        }
+        
+        /* カードごとの色設定 */
+        .copyright {
+            background-color: #E6F2F0;
+            border: 2px solid #00704A;
+        }
+        .copyright .card-icon {
+            background-color: #00704A;
+        }
+        .copyright h2 {
+            color: #00704A;
+        }
+        
+        .privacy {
+            background-color: #F7F5E8;
+            border: 2px solid #C2A661;
+        }
+        .privacy .card-icon {
+            background-color: #C2A661;
+        }
+        .privacy h2 {
+            color: #C2A661;
+        }
+        
+        .deepfake {
+            background-color: #F0E6E6;
+            border: 2px solid #A61C1C;
+        }
+        .deepfake .card-icon {
+            background-color: #A61C1C;
+        }
+        .deepfake h2 {
+            color: #A61C1C;
+        }
+        
+        .bias {
+            background-color: #E6EBF2;
+            border: 2px solid #1C56A6;
+        }
+        .bias .card-icon {
+            background-color: #1C56A6;
+        }
+        .bias h2 {
+            color: #1C56A6;
+        }
+        
+        .transparency {
+            background-color: #F2EBE6;
+            border: 2px solid #A67C1C;
+        }
+        .transparency .card-icon {
+            background-color: #A67C1C;
+        }
+        .transparency h2 {
+            color: #A67C1C;
+        }
+        
+        .employment {
+            background-color: #E8F2E6;
+            border: 2px solid #3CA61C;
+        }
+        .employment .card-icon {
+            background-color: #3CA61C;
+        }
+        .employment h2 {
+            color: #3CA61C;
+        }
+    </style>
+</head>
+<body>
+    <!-- スターバックス風デザイン用の丸 -->
+    <div class="corner-circle top-left"></div>
+    <div class="corner-circle top-right"></div>
+    <div class="corner-circle bottom-left"></div>
+    <div class="corner-circle bottom-right"></div>
+
+    <header>
+        <h1>生成AIの倫理感</h1>
+    </header>
+    
+    <div class="subtitle">画像生成AIが提起する倫理的問題と私たちの対応</div>
+    
+    <div class="container">
+        <div class="card-container">
+            <a href="copyright.html" style="text-decoration: none; color: inherit;">
+                <div class="card copyright">
+                    <div class="card-icon">©</div>
+                    <div class="card-content">
+                        <h2>著作権問題</h2>
+                        <p>画像生成AIによる著作権に関わる様々な課題と懸念点について詳しく解説します。</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="privacy.html" style="text-decoration: none; color: inherit;">
+                <div class="card privacy">
+                    <div class="card-icon">👤</div>
+                    <div class="card-content">
+                        <h2>肖像権とプライバシーの侵害</h2>
+                        <p>AIによる画像生成が引き起こす肖像権とプライバシーに関する問題点を探ります。</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="deepfake.html" style="text-decoration: none; color: inherit;">
+                <div class="card deepfake">
+                    <div class="card-icon">!</div>
+                    <div class="card-content">
+                        <h2>ディープフェイクと偽情報</h2>
+                        <p>AIによる高品質な偽画像の作成がもたらす社会的リスクと影響を考察します。</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="bias.html" style="text-decoration: none; color: inherit;">
+                <div class="card bias">
+                    <div class="card-icon">⚖️</div>
+                    <div class="card-content">
+                        <h2>バイアスと差別の助長</h2>
+                        <p>AI生成画像に内在する社会的バイアスと差別的表現の問題について解説します。</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="transparency.html" style="text-decoration: none; color: inherit;">
+                <div class="card transparency">
+                    <div class="card-icon">🔍</div>
+                    <div class="card-content">
+                        <h2>透明性の欠如</h2>
+                        <p>生成AIのプロセスやアルゴリズムの不透明さがもたらす倫理的課題を検討します。</p>
+                    </div>
+                </div>
+            </a>
+            
+            <a href="employment.html" style="text-decoration: none; color: inherit;">
+                <div class="card employment">
+                    <div class="card-icon">💼</div>
+                    <div class="card-content">
+                        <h2>雇用と創作産業への影響</h2>
+                        <p>AIによる自動生成が創作者やクリエイティブ産業に与える影響を分析します。</p>
+                    </div>
+                </div>
+            </a>
+        </div>
+        
+        <div class="footer">
+            <h2>私たちにできること</h2>
+            <ul>
+                <li>生成AIの適切な使用方法と倫理的ガイドラインの理解</li>
+                <li>AIが生成したコンテンツであることの明示と透明性の確保</li>
+                <li>クリエイターの権利を尊重し、適切なライセンスと引用を行う</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
