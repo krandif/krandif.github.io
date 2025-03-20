@@ -1,1 +1,0 @@
-# krandif.github.io
