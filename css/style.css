@@ -77,6 +77,7 @@ nav ul li a:hover {
 /* Main Content Styles */
 main {
     padding-top: 80px;
+    padding-bottom: 220px; /* フッターの高さ分の余白を追加 */
     min-height: calc(100vh - 200px);
 }
 
@@ -254,6 +255,10 @@ footer {
     background-color: #333;
     color: #fff;
     padding: 50px 0 20px;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    z-index: 999;
 }
 
 .footer-content {
@@ -347,5 +352,14 @@ footer {
 
     .footer-info {
         margin-bottom: 30px;
+    }
+
+    /* スマホ表示時のフッター調整 */
+    footer {
+        position: relative; /* スマホ表示時は固定せず通常のフローに戻す */
+    }
+
+    main {
+        padding-bottom: 20px; /* スマホ表示時はフッターが固定されないので余白を減らす */
     }
 }
