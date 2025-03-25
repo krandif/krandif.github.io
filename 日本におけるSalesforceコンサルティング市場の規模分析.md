@@ -1,9 +1,3 @@
-<img src="https://r2cdn.perplexity.ai/pplx-full-logo-primary-dark%402x.png" class="logo" width="120"/>
-
-# 
-
----
-
 # 日本におけるSalesforceコンサルティング市場の規模分析
 
 日本のSalesforceコンサルティング市場は急速に成長しており、デジタル変革の加速とともに重要性が高まっています。最新の市場データと傾向に基づく分析によると、この市場は今後数年間でさらなる成長が見込まれています。
@@ -84,4 +78,3 @@ Salesforceパートナーエコシステムの拡大と、顧客中心戦略へ�
 [^13]: https://prtimes.jp/main/html/rd/p/000000150.000041550.html
 
 [^14]: https://type.jp/et/feature/20530/
-
