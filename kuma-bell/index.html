@@ -40,6 +40,11 @@
   <div class="meter"><div id="bar"></div></div>
 </div>
 
+<div class="row">
+  <label><span>鳴らす頻度(◯回の検知に1回鳴らす)</span><span id="everyV">4</span></label>
+  <input id="every" type="range" min="1" max="10" step="1" value="4">
+</div>
+
 <div class="diag" id="diag">
   <div>センサー受信: <span id="dEvt">0</span> 回</div>
   <div>揺れの大きさ: <span id="dDev">-</span></div>
@@ -113,7 +118,8 @@
       lastStep = t;
       steps++;
       $('steps').textContent = steps;
-      ring();
+      const n = parseInt($('every').value, 10) || 1;
+      if ((steps - 1) % n === 0) ring();   // 1回目で鳴らし、以降は n 回に1回
     }
   }
 
@@ -181,6 +187,7 @@
   };
   $('vol').oninput = e => { $('volV').textContent = e.target.value; if (master) master.gain.value = e.target.value / 100; };
   $('th').oninput = e => { $('thV').textContent = e.target.value; };
+  $('every').oninput = e => { $('everyV').textContent = e.target.value; };
 
   document.addEventListener('visibilitychange', async () => {
     if (running && document.visibilityState === 'visible' && 'wakeLock' in navigator) {
