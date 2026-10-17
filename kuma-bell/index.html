@@ -118,6 +118,18 @@
   }
 
   async function start() {
+    // iOS は、タップ直後の最初の処理として許可を求める必要がある(他の await より先に実行)
+    if (!$('timerMode').checked &&
+        typeof DeviceMotionEvent !== 'undefined' &&
+        typeof DeviceMotionEvent.requestPermission === 'function') {
+      let res = 'denied';
+      try { res = await DeviceMotionEvent.requestPermission(); }
+      catch (err) { say('許可の確認でエラー: ' + err.name + '\nページを閉じて開き直し、もう一度「開始」を押してください'); return; }
+      if (res !== 'granted') {
+        say('モーションセンサーの許可が得られませんでした。\n1. Safariのタブを閉じて、URLを開き直す\n2. 「開始」を押し、ダイアログで「許可」を選ぶ\n3. ダイアログが出ない場合は、iPhoneの「設定」→「Safari」→「詳細」で「モーションと画面の向きへのアクセス」をオンにする\n4. LINEなどアプリ内のブラウザではなく、SafariかChromeで開く');
+        return;
+      }
+    }
     const AC = window.AudioContext || window.webkitAudioContext;
     ctx = ctx || new AC();
     await ctx.resume();
@@ -129,12 +141,6 @@
       timerId = setInterval(ring, 1200);
       say('タイマーモードで動作中(1.2秒間隔)');
     } else {
-      // iOS は許可ダイアログが必要
-      if (typeof DeviceMotionEvent !== 'undefined' &&
-          typeof DeviceMotionEvent.requestPermission === 'function') {
-        const res = await DeviceMotionEvent.requestPermission();
-        if (res !== 'granted') { say('モーションセンサーの許可が得られませんでした'); return; }
-      }
       evtCount = 0; recent = []; baseline = null;
       window.addEventListener('devicemotion', onMotion);
       say('歩くと鳴ります。画面は点灯したままにしてください');
